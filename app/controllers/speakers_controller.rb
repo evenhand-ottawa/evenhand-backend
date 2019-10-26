@@ -1,16 +1,25 @@
 class SpeakersController < ApplicationController
   before_action :set_speaker, only: [:show, :update, :destroy]
 
+  # TODO: set up Serializers as a nicer way to do this
+  INCLUDED_FIELDS = {
+    topics: {},
+    languages: {},
+    user: {
+      except: [:password]
+    },
+  }
+
   # GET /speakers
   def index
     @speakers = Speaker.all
 
-    render json: @speakers
+    render json: @speakers, include: INCLUDED_FIELDS
   end
 
   # GET /speakers/1
   def show
-    render json: @speaker
+    render json: @speaker, include: INCLUDED_FIELDS
   end
 
   # POST /speakers
@@ -46,6 +55,6 @@ class SpeakersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def speaker_params
-      params.require(:speaker).permit(:pronouns, :languages, :location, :will_travel, :occupation, :tagline, :image, :video, :instagram, :twitter, :linkedin, :website, :biography)
+      params.fetch(:speaker, {})
     end
 end
