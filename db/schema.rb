@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_26_184437) do
+ActiveRecord::Schema.define(version: 2019_10_26_190957) do
 
   create_table "languages", force: :cascade do |t|
     t.string "name"
@@ -65,12 +65,11 @@ ActiveRecord::Schema.define(version: 2019_10_26_184437) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "user"
     t.string "first_name"
     t.string "last_name"
     t.string "email"
     t.string "password"
-    t.string "speaker_id"
+    t.integer "speaker_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -79,4 +78,5 @@ ActiveRecord::Schema.define(version: 2019_10_26_184437) do
   add_foreign_key "speaker_topics", "topics"
   add_foreign_key "speakers", "speaker_languages"
   add_foreign_key "speakers", "speaker_topics"
+  add_foreign_key "users", "speakers"
 end
