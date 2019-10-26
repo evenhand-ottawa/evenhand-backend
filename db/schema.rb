@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_26_210247) do
+ActiveRecord::Schema.define(version: 2019_10_26_220929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2019_10_26_210247) do
   end
 
   create_table "speaker_languages", force: :cascade do |t|
-    t.integer "speaker_id"
-    t.integer "language_id"
+    t.bigint "speaker_id"
+    t.bigint "language_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["language_id"], name: "index_speaker_languages_on_language_id"
@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 2019_10_26_210247) do
   end
 
   create_table "speaker_topics", force: :cascade do |t|
-    t.integer "topic_id", null: false
-    t.integer "speaker_id", null: false
+    t.bigint "topic_id", null: false
+    t.bigint "speaker_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["speaker_id"], name: "index_speaker_topics_on_speaker_id"
@@ -54,8 +54,6 @@ ActiveRecord::Schema.define(version: 2019_10_26_210247) do
     t.text "biography"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_speakers_on_user_id"
   end
 
   create_table "topics", force: :cascade do |t|
@@ -69,13 +67,13 @@ ActiveRecord::Schema.define(version: 2019_10_26_210247) do
     t.string "last_name"
     t.string "email"
     t.string "password"
+    t.bigint "speaker_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["speaker_id"], name: "index_users_on_speaker_id"
   end
 
-  add_foreign_key "speaker_languages", "languages"
-  add_foreign_key "speaker_languages", "speakers"
   add_foreign_key "speaker_topics", "speakers"
   add_foreign_key "speaker_topics", "topics"
-  add_foreign_key "speakers", "users"
+  add_foreign_key "users", "speakers"
 end
