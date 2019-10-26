@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2019_10_26_210247) do
     t.text "biography"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_speakers_on_user_id"
   end
 
