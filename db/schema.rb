@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_26_190957) do
+ActiveRecord::Schema.define(version: 2019_10_26_204637) do
 
   create_table "languages", force: :cascade do |t|
     t.string "name"
@@ -51,11 +51,8 @@ ActiveRecord::Schema.define(version: 2019_10_26_190957) do
     t.text "biography"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "speaker_language"
-    t.integer "speaker_language_id"
-    t.integer "speaker_topic_id"
-    t.index ["speaker_language_id"], name: "index_speakers_on_speaker_language_id"
-    t.index ["speaker_topic_id"], name: "index_speakers_on_speaker_topic_id"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_speakers_on_user_id"
   end
 
   create_table "topics", force: :cascade do |t|
@@ -69,14 +66,11 @@ ActiveRecord::Schema.define(version: 2019_10_26_190957) do
     t.string "last_name"
     t.string "email"
     t.string "password"
-    t.integer "speaker_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "speaker_topics", "speakers"
   add_foreign_key "speaker_topics", "topics"
-  add_foreign_key "speakers", "speaker_languages"
-  add_foreign_key "speakers", "speaker_topics"
-  add_foreign_key "users", "speakers"
+  add_foreign_key "speakers", "users"
 end

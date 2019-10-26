@@ -1,4 +1,4 @@
 class SpeakerLanguage < ApplicationRecord
-  belongs_to :topic
+  belongs_to :speaker
   belongs_to :language
 end
