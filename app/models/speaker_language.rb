@@ -1,0 +1,2 @@
+class SpeakerLanguage < ApplicationRecord
+end
