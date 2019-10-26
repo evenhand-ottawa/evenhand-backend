@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "Speakerlanguages", type: :request do
-  describe "GET /speakerlanguages" do
+RSpec.describe "SpeakerLanguages", type: :request do
+  describe "GET /speaker_languages" do
     it "works! (now write some real specs)" do
       get speaker_languages_path
       expect(response).to have_http_status(200)
