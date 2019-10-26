@@ -1,4 +1,4 @@
 FactoryBot.define do
-  factory :speaker_topic do
+  factory :speaker_language do
   end
 end
