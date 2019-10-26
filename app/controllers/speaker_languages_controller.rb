@@ -46,6 +46,6 @@ class SpeakerLanguagesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def speaker_language_params
-      params.require(:speaker_language).permit(:speaker, :language)
+      params.fetch(:speaker_language, {})
     end
 end
