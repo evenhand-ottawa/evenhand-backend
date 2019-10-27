@@ -15,6 +15,7 @@ require "action_cable/engine"
 # require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
+require "algoliasearch-rails"
 require "scrypt"
 
 # Require the gems listed in Gemfile, including any gems

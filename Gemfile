@@ -49,3 +49,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "database_cleaner", "~> 1.7"
 
 gem "scrypt", "~> 3.0"
+
+gem "algoliasearch-rails", "~> 1.23"

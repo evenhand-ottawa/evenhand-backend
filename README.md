@@ -19,6 +19,10 @@
 * `master` is for production, `development` is for development
 * Don't commit directly to `development` or `master`; use feature branches and PRs instead
 
+## Deployment
+Deployment is currently automated.
+The development enviroment deploys to https://evenhand-backend.herokuapp.com/
+
 ## Algolia
 ### Configuring
 To use full-text search you need an Algolia API key.
@@ -48,3 +52,5 @@ https://coderwall.com/p/vngr0a/simple-full-text-search-using-postgres-on-rails
 * Pagination
 * Using `permit` properly/safely for parameters
 * User logins
+* Emails
+* Migrate to Postgres full-text search?
