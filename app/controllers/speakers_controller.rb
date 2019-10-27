@@ -55,6 +55,6 @@ class SpeakersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def speaker_params
-      params.fetch(:speaker, {})
+      params.fetch(:speaker).permit!
     end
 end
