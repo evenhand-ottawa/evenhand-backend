@@ -30,6 +30,7 @@ speaker1 = Speaker.new(
   video: "talk.mp4",
   instagram: "@rhokstar",
   twitter: "@rhokstar",
+  linkedin: "https:/linkedin.com/",
   website: "rhoksta.rs",
   biography: "Random Hacks of Kindness is a hackathon for social good that brings together volunteer developers and tech-savvy do-gooders to work with charities, community groups and social enterprises."
 )
