@@ -1,6 +1,5 @@
 # README
 
-
 ## Setup
 * Use Rails 2.6.x. Ideally, use `rbenv` or `rvm`.
 * `bundle install`
@@ -14,14 +13,23 @@
 * `rails db:environment:set RAILS_ENV=development`
 * `rails db:setup`
 
-
 ## Development
 * `master` is for production, `development` is for development
 * Don't commit directly to `development` or `master`; use feature branches and PRs instead
 
 ## Deployment
 Deployment is currently automated.
-The development enviroment deploys to https://evenhand-backend.herokuapp.com/
+The development environment deploys to https://evenhand-backend.herokuapp.com/
+
+## Administration
+Use the Heroku CLI.
+
+Handy commands:
+```
+heroku run -a evenhand-backend rake <tasks> # run rake tasks
+heroku run -a evenhand-backend rails c # Rails console
+heroku -a evenhand-backend logs --tail -n 100 # tail logs
+```
 
 ## Algolia
 ### Configuring
