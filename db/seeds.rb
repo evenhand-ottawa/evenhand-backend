@@ -6,21 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-english = Language.create(name: "English")
-arabic = Language.create(name: "Arabic")
-portuguese = Language.create(name: "Portuguese")
+english = Language.find_or_create_by(name: "English")
+arabic = Language.find_or_create_by(name: "Arabic")
+portuguese = Language.find_or_create_by(name: "Portuguese")
 
-topic1 = Topic.create(name: "Test Topic 1")
-topic2 = Topic.create(name: "Test Topic 2")
+topic1 = Topic.find_or_create_by(name: "Test Topic 1")
+topic2 = Topic.find_or_create_by(name: "Test Topic 2")
 
-user1 = User.create(
+user1 = User.find_or_create_by(
   first_name: "Rhok",
   last_name: "Star",
   email: "rhokstar@rhoksta.rs",
   password: "scrypt",
 )
 
-speaker1 = Speaker.new(
+speaker1 = Speaker.find_or_initialize_by(
   pronouns: "Ze/Zir/Zirs",
   location: "Ottawa",
   will_travel: false,
