@@ -31,6 +31,9 @@ heroku run -a evenhand-backend rails c # Rails console
 heroku -a evenhand-backend logs --tail -n 100 # tail logs
 ```
 
+## API Docs
+API Docs generated via Postman available here: https://documenter.getpostman.com/view/9282923/SVzxaLbY?version=latest
+
 ## Algolia
 ### Configuring
 To use full-text search you need an Algolia API key.
