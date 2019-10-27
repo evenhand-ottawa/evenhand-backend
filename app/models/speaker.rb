@@ -10,6 +10,20 @@ class Speaker < ApplicationRecord
   has_many :topics, through: :speaker_topics
 
   algoliasearch do
-    # all attributes will be sent
+    attributes Speaker.attribute_names
+    attribute :languages do
+      languages.map do |langugage|
+        langugage.name
+      end
+    end
+    attribute :topics do
+      topics.map do |topic|
+        topic.name
+      end
+    end
+    attribute :user do
+      user.attributes.except!("password")
+    end
+    attributesForFaceting [:topics, :languages]
   end
 end
