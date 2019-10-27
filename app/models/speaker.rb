@@ -9,8 +9,10 @@ class Speaker < ApplicationRecord
   has_many :speaker_topics, dependent: :destroy # delete speaker_topic if speaker deleted
   has_many :topics, through: :speaker_topics
 
+  delegate_missing_to :user
+
   algoliasearch do
-    attributes Speaker.attribute_names
+    attributes Speaker.attribute_names + User.attribute_names - ["password"]
     attribute :languages do
       languages.map do |langugage|
         langugage.name
@@ -21,9 +23,9 @@ class Speaker < ApplicationRecord
         topic.name
       end
     end
-    attribute :user do
-      user.attributes.except!("password")
-    end
+    # attribute :user do
+    #   user.attributes.except!("password")
+    # end
     attributesForFaceting [:topics, :languages]
   end
 end
