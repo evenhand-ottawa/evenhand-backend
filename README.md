@@ -60,5 +60,5 @@ https://coderwall.com/p/vngr0a/simple-full-text-search-using-postgres-on-rails
 * Using `permit` properly/safely for parameters
 * User logins
 * Emails
-* Set up nested object relations in Algolia? https://github.com/algolia/algoliasearch-rails#nested-objectsrelations 
+* Properly set up nested object relations using `after_save` in Algolia? https://github.com/algolia/algoliasearch-rails#nested-objectsrelations 
 * Migrate to Postgres full-text search?
