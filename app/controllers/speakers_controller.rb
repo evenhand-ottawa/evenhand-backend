@@ -27,7 +27,7 @@ class SpeakersController < ApplicationController
     @speaker = Speaker.new(speaker_params)
 
     if @speaker.save
-      render json: @speaker, status: :created, location: @speaker
+      render json: @speaker, status: :created, include: INCLUDED_FIELDS, location: @speaker
     else
       render json: @speaker.errors, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class SpeakersController < ApplicationController
   # PATCH/PUT /speakers/1
   def update
     if @speaker.update(speaker_params)
-      render json: @speaker
+      render json: @speaker, include: INCLUDED_FIELDS
     else
       render json: @speaker.errors, status: :unprocessable_entity
     end
