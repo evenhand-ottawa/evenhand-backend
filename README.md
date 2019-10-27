@@ -14,6 +14,11 @@
 * `rails db:environment:set RAILS_ENV=development`
 * `rails db:setup`
 
+
+## Development
+* `master` is for production, `development` is for development
+* Don't commit directly to `development` or `master`; use feature branches and PRs instead
+
 ## Algolia
 ### Configuring
 To use full-text search you need an Algolia API key.
